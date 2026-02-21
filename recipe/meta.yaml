@@ -19,7 +19,7 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
-    - build
+    - python-build
   run:
     - python >={{ python_min }}
     - pooch
