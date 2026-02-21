@@ -1,17 +1,17 @@
 {% set name = "pythia-datasets" %}
-{% set version = "2021.9.21" %}
+{% set version = "2026.2.20" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 19fcb86b0db71aa3251dcab528b51bf66639e2dc3c8654d6fc80b8a3379ac650
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name | replace('-', '_') }}-{{ version }}.tar.gz
+  sha256: 7ff7427d2ad99b6eca561104eac2c51f401584c380a96b6229599dd045f85be4
 
 build:
   noarch: python
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
@@ -19,6 +19,8 @@ requirements:
   host:
     - python {{ python_min }}
     - pip
+    - hatch
+    - hatch-vcs
   run:
     - python >={{ python_min }}
     - pooch
